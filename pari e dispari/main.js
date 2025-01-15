@@ -4,6 +4,7 @@
 let choice = (prompt("inserisci pari o dispari").toLowerCase());
 //declare the variable that i need for the user
 let userNumber;
+let sum;
 //declare variable that i need for the computer
 let computerNumber = computerRandomNumber();
 
@@ -12,6 +13,18 @@ if (choice == "pari" || choice == "dispari") {
     userNumber = parseInt(prompt("inserisci un numero da 1 a 5"));
     if (userNumber >= 1 && userNumber <= 5) {
         console.log(`hai scelto ${choice} e ${userNumber}`);
+
+        //show on console the computer number
+        console.log(`il numero scelto dal computer è ${computerNumber}`);
+
+        //let's sum both numbers
+        sum = computerNumber + userNumber;
+        console.log(`la somma dei due numeri è ${sum}`);
+
+        //let's call the functions that i need
+        sumEvenOdd(sum);
+        winnerOfGame(sum, choice);
+
     }
 
 
@@ -28,15 +41,8 @@ function computerRandomNumber() {
     return comNumber;
 }
 
-//show on console the computer number
-console.log(`il numero scelto dal computer è ${computerNumber}`);
-
-//let's sum both numbers
-let sum = computerNumber + userNumber;
-console.log(`la somma dei due numeri è ${sum}`);
-
-let result = compareNumbers();
-function compareNumbers(sum, choice) {
+//let's do a function to see if sum is even or odd
+function sumEvenOdd(sum) {
 
     if (sum % 2 == 0) {
         console.log(`la somma è pari`);
@@ -45,8 +51,17 @@ function compareNumbers(sum, choice) {
         console.log(`la somma è dispari`);
 
     }
-
 }
+
+//let's do a function to see the winner 
+function winnerOfGame(sum, choice) {
+    if (sum == choice) {
+        console.log("vinci!");
+    } else (
+        console.log("vince il computer")
+    )
+}
+
 
 
 
