@@ -3,10 +3,11 @@
 //declare variables that i need for the user
 let choice = (prompt("inserisci pari o dispari").toLowerCase());
 //declare the variable that i need for the user
-let userNumber;
-let sum;
+let userNumber = NaN;
+let sum = NaN;
 //declare variable that i need for the computer
 let computerNumber = computerRandomNumber();
+let resultEvenOdd = "";
 
 //write the condition to start the game
 if (choice == "pari" || choice == "dispari") {
@@ -23,7 +24,7 @@ if (choice == "pari" || choice == "dispari") {
 
         //let's call the functions that i need
         sumEvenOdd(sum);
-        winnerOfGame(sum, choice);
+        winnerOfGame(resultEvenOdd, choice);
 
     }
 
@@ -45,21 +46,23 @@ function computerRandomNumber() {
 function sumEvenOdd(sum) {
 
     if (sum % 2 == 0) {
+        resultEvenOdd = "pari"
         console.log(`la somma è pari`);
 
     } else {
+        resultEvenOdd = "dispari"
         console.log(`la somma è dispari`);
 
     }
 }
 
 //let's do a function to see the winner 
-function winnerOfGame(sum, choice) {
-    if (sum == choice) {
+function winnerOfGame(evenodd, choice) {
+    if (evenodd == choice) {
         console.log("vinci!");
-    } else (
+    } else {
         console.log("vince il computer")
-    )
+    }
 }
 
 
